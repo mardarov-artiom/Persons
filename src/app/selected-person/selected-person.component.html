@@ -1,0 +1,6 @@
+<div *ngIf="this.personsService.isPersonSelected">
+  <div class="selected-person">
+    <h2>{{ selected.firstName }} {{ selected.lastName }}</h2>
+    <h4>Email: {{ selected.email }}</h4>
+  </div>
+</div>

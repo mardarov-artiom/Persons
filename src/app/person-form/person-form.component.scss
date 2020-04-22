@@ -1,0 +1,142 @@
+.form-wrapper {
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 2;
+  display: none;
+}
+
+.form-wrapper.active {
+  display: block;
+}
+
+.form-overlay {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.6);
+  transition: 0.4s;
+  opacity: 0;
+}
+
+.form-overlay.active {
+  animation: fadeIn 0.4s linear forwards;
+}
+
+form {
+  width: 100%;
+  max-width: 400px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translateY(-50%) translateX(-200%);
+  background-color: #fff;
+  padding: 30px;
+  opacity: 0;
+}
+
+form.active {
+  animation: slideIn 0.3s linear forwards;
+  animation-delay: 0.2s;
+}
+
+.form-row {
+  width: 100%;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+
+  label {
+    width: 100px;
+  }
+
+  input {
+    flex-grow: 1;
+  }
+}
+
+.form-row.buttons {
+  justify-content: flex-end;
+}
+
+.btn {
+  padding: 5px;
+  border: 1px solid;
+  border-radius: 5px;
+  margin-left: 15px;
+  background-color: white;
+  cursor: pointer;
+}
+
+.cancel {
+  border-color: red;
+  color: red;
+}
+
+.submit {
+  border-color: green;
+  color: green;
+}
+
+.form-radio {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+
+  label {
+    width: auto;
+  }
+
+  input {
+    width: auto;
+    margin-left: 10px;
+  }
+}
+
+.form-radio:not(:last-child) {
+  margin-right: 20px;
+}
+
+.form-row:not(:last-child) {
+  margin-bottom: 15px;
+}
+
+input {
+  border: 1px solid black;
+  outline: none;
+  padding: 5px;
+}
+
+input.ng-touched.ng-invalid {
+  border-color: red;
+}
+
+button[disabled] {
+  cursor: not-allowed;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateY(-50%) translateX(-200%);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(-50%) translateX(-50%);
+  }
+}

@@ -1,0 +1,58 @@
+<div class="form-wrapper" [class.active]="isFormOpen">
+  <div
+    class="form-overlay"
+    [class.active]="isFormOpen"
+    (click)="handlePersonForm()"
+  ></div>
+  <form [class.active]="isFormOpen" [formGroup]="form">
+    <div class="form-row">
+      <label>First Name: </label>
+      <input type="text" formControlName="firstName" />
+    </div>
+    <div class="form-row">
+      <label>Last Name: </label>
+      <input type="text" formControlName="lastName" />
+    </div>
+    <div class="form-row">
+      <label>Gender: </label>
+      <div class="form-radio">
+        <label for="male">Male</label>
+        <input
+          type="radio"
+          id="male"
+          name="gender"
+          value="Male"
+          formControlName="gender"
+        />
+      </div>
+      <div class="form-radio">
+        <label for="female">Female</label>
+        <input
+          type="radio"
+          id="female"
+          name="gender"
+          value="Female"
+          formControlName="gender"
+        />
+      </div>
+    </div>
+    <div class="form-row">
+      <label>Email: </label>
+      <input type="text" formControlName="email" />
+    </div>
+    <div class="form-row">
+      <label>Phone: </label>
+      <input type="text" formControlName="phone" />
+    </div>
+    <div class="form-row buttons">
+      <button class="btn cancel" (click)="handlePersonForm()">Cancel</button>
+      <button
+        class="btn submit"
+        (click)="submitPerson()"
+        [disabled]="form.status !== 'VALID'"
+      >
+        Submit
+      </button>
+    </div>
+  </form>
+</div>
